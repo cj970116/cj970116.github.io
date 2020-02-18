@@ -1,33 +1,58 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<?xml-stylesheet type="text/xsl" href="https://cj970116.github.io/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
     <loc>https://cj970116.github.io/</loc>
-    <lastmod>2020-02-18T11:49:57+08:00</lastmod>
+    <lastmod>2020-02-18T13:32:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cj970116.github.io/posts/first/</loc>
-    <lastmod>2020-02-18T11:47:15+08:00</lastmod>
+    <loc>https://cj970116.github.io/post/js%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2020-02-18T11:49:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cj970116.github.io/posts/</loc>
-    <lastmod>2020-02-18T11:49:57+08:00</lastmod>
+    <loc>https://cj970116.github.io/post/</loc>
+    <lastmod>2020-02-18T13:32:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cj970116.github.io/posts/js%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2020-02-18T11:49:57+08:00</lastmod>
+    <loc>https://cj970116.github.io/post/all-posts/</loc>
+    <lastmod>2020-02-18T13:32:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cj970116.github.io/about/</loc>
+    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cj970116.github.io/contact/</loc>
+    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://cj970116.github.io/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://cj970116.github.io/tags/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
 </urlset>

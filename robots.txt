@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://cj970116.github.io/sitemap.xml
