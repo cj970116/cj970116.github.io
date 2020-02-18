@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>js 高级学习笔记 // Cjae的个人博客</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.64.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://cj970116.github.io/css/main.min.85716dc81be3251c6824a76ffef63fc9c8c951f141a8562d2650e385acd3f459.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="js 高级学习笔记"/>
+<meta name="twitter:description" content="es6 继承&lt;2020-01-27 周一&gt;  语法   构造函数和原型&lt;2020-01-27 周一&gt; 对象高级方法&lt;2020-01-28 周二&gt;  Object.keys 方法:对象属性遍历:  语法: 注意:   Object.defineProperty 方法  语法 descriptor get/set     函数 this 进阶&lt;2020-01-30 周四&gt;  函数内 this 指向 :this 指向: 改变函数内部 this 指向 :this 指向:   何时在 es6 中使用箭头函数&lt;2020-01-30 周四&gt; 严格模式 &lt;2020-02-15 周六&gt;  this 的指向问题 函数变化   高阶函数&lt;2020-02-15 周六&gt;  概念    es6 继承&lt;2020-01-27 周一&gt; 语法 class Father{} //父类class Son{} //子类class Son extends Father{} super 关键字:super 关键字用于访问和调用对象父类上的函数,可以调用父类上的构造函数,也可以调用父类的普通函数"/>
+
+    <meta property="og:title" content="js 高级学习笔记" />
+<meta property="og:description" content="es6 继承&lt;2020-01-27 周一&gt;  语法   构造函数和原型&lt;2020-01-27 周一&gt; 对象高级方法&lt;2020-01-28 周二&gt;  Object.keys 方法:对象属性遍历:  语法: 注意:   Object.defineProperty 方法  语法 descriptor get/set     函数 this 进阶&lt;2020-01-30 周四&gt;  函数内 this 指向 :this 指向: 改变函数内部 this 指向 :this 指向:   何时在 es6 中使用箭头函数&lt;2020-01-30 周四&gt; 严格模式 &lt;2020-02-15 周六&gt;  this 的指向问题 函数变化   高阶函数&lt;2020-02-15 周六&gt;  概念    es6 继承&lt;2020-01-27 周一&gt; 语法 class Father{} //父类class Son{} //子类class Son extends Father{} super 关键字:super 关键字用于访问和调用对象父类上的函数,可以调用父类上的构造函数,也可以调用父类的普通函数" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cj970116.github.io/posts/js%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" />
+<meta property="article:published_time" content="2020-02-17T00:00:00+08:00" />
+<meta property="article:modified_time" content="2020-02-18T11:49:57+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://cj970116.github.io"><img class="app-header-avatar" src="/2131.jpg" alt="John Doe" /></a>
+      <h1>Cjae的个人博客</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/gohugoio" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://twitter.com/gohugoio" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">js 高级学习笔记</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Feb 17, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ul>
+<li><a href="#es6-%E7%BB%A7%E6%89%BF">es6 继承<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;2020-01-27 周一&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></a>
+<ul>
+<li><a href="#%E8%AF%AD%E6%B3%95">语法</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E5%8E%9F%E5%9E%8B">构造函数和原型<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;2020-01-27 周一&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+<li><a href="#%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E6%96%B9%E6%B3%95">对象高级方法<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;2020-01-28 周二&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></a>
+<ul>
+<li><a href="#object-dot-keys-%E6%96%B9%E6%B3%95">Object.keys 方法</a>:对象属性遍历:
+<ul>
+<li><a href="#%E8%AF%AD%E6%B3%95">语法:</a></li>
+<li><a href="#%E6%B3%A8%E6%84%8F">注意:</a></li>
+</ul>
+</li>
+<li><a href="#object-dot-defineproperty-%E6%96%B9%E6%B3%95">Object.defineProperty 方法</a>
+<ul>
+<li><a href="#%E8%AF%AD%E6%B3%95">语法</a></li>
+<li><a href="#descriptor">descriptor</a></li>
+<li><a href="#get-set">get/set</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%87%BD%E6%95%B0-this-%E8%BF%9B%E9%98%B6">函数 this 进阶<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;2020-01-30 周四&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></a>
+<ul>
+<li><a href="#%E5%87%BD%E6%95%B0%E5%86%85-this-%E6%8C%87%E5%90%91-this-%E6%8C%87%E5%90%91">函数内 this 指向                                                :this 指向:</a></li>
+<li><a href="#%E6%94%B9%E5%8F%98%E5%87%BD%E6%95%B0%E5%86%85%E9%83%A8-this-%E6%8C%87%E5%90%91-this-%E6%8C%87%E5%90%91">改变函数内部 this 指向                                          :this 指向:</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BD%95%E6%97%B6%E5%9C%A8-es6-%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0">何时在 es6 中使用箭头函数<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;2020-01-30 周四&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+<li><a href="#%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F">严格模式 <!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;2020-02-15 周六&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></a>
+<ul>
+<li><a href="#this-%E7%9A%84%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98">this 的指向问题</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0%E5%8F%98%E5%8C%96">函数变化</a></li>
+</ul>
+</li>
+<li><a href="#%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0">高阶函数<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;2020-02-15 周六&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></a>
+<ul>
+<li><a href="#%E6%A6%82%E5%BF%B5">概念</a></li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="es6-继承">es6 继承<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;2020-01-27 周一&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h3 id="语法">语法</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">class Father{}  //父类
+class Son{}  //子类
+class Son extends Father{}
+</code></pre></div><blockquote>
+<p>super 关键字:super 关键字用于访问和调用对象父类上的函数,可以调用父类上的构造函数,也可以调用父类的普通函数</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">//子类继承父类的方法同时拓展自己的方法
+class Father{
+    constructor(x,y){
+        this.x = x
+        this.y = y
+    }
+    sum(){
+        console.log(this.x+this.y)
+    }
+}
+class Son{
+    constructor(x,y){
+    //super 必须再子类 this 之前调用,利用 super 调用父类的构造函数
+        super(x,y)
+        this.x = x
+        this.y = y
+    }
+    subtract(){
+        console.log(this.x-this.y)
+    }
+}
+
+</code></pre></div><p><strong>注意</strong></p>
+<ol>
+<li>在 es6 中类没有变量提升,所以必须先定义类,才能通过类实例化对象</li>
+<li>类中的共有属性和方法一定要加 this 使用</li>
+<li>关于 this 的指向问题.constructor 里面的 this 指向的是创建的实例对象;方法里面的 this 指向的是这个方法的调用者</li>
+<li>可以通过声明一个全局变量保存 constructor 中的 this,在类的方法中通过 that.name 就可以访问到 constructor 中的 this,例如:</li>
+</ol>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">let that
+class Star{
+    constructor(uname,age){
+        that = this
+        this.uname=uname
+        this.age = age
+        this.btn = document.querySelector(&#39;button&#39;)
+        this.btn.onclick = this.sing
+    }
+    sing(){
+        console.log(that.uname)  //由于 sing 方法中的 this 指向的是 btn 这个按钮,所以这里如果使用 this.name 是访问不到的
+    }
+}
+</code></pre></div><h2 id="构造函数和原型">构造函数和原型<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;2020-01-27 周一&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<blockquote>
+<p>构造函数通过原型分配的函数是所有对象所共享的</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<blockquote>
+<p>js 规定,每一个构造函数都有一个 prototype 属性,指向另一个对象,注意这个 prototype 就是一个对象,这个对象的所有属性和方法都会被构造函数所拥有我们可以把那些不变的方法,直接定义在 prototype 对象上,这样所有对象的实例就可以共享这些方法</p>
+</blockquote>
+<p><strong>原型是什么?</strong></p>
+<blockquote>
+<p>一个对象,我们也称 prototype 为原型对象</p>
+</blockquote>
+<p><strong>原型的作用是什么?</strong></p>
+<blockquote>
+<p>共享方法</p>
+</blockquote>
+<p>注:一般情况下,公共的属性定义到构造函数里,公共的方法定义到原型对象上</p>
+<p><strong>对象原型__proto__</strong></p>
+<blockquote>
+<p>每一个对象都会有一个属性__proto__,指向构造函数的 prototype 原型对象之所以我们对象可以使用构造函数 prototype 原型对象的属性和方法,就是因为有__proto__原型的存在
+__proto__对象那原型和原型对象 prototype 是等价的</p>
+</blockquote>
+<p><strong>econstructor 构造函数</strong></p>
+<blockquote>
+<p>对象原型(<!-- raw HTML omitted --><!-- raw HTML omitted -->proto<!-- raw HTML omitted --><!-- raw HTML omitted -->)和构造函数原型对象(prototyp)里面都有一个属性 constructor,我们称之为构造函数,因为它指回构造函数本身
+constructor 主要用于记录该对象引用于哪个构造函数,它可以让原型对象重新指回原本的构造函数</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<blockquote>
+<p>很多情况下,我们需要手动利用 construcotr 这个属性指回原来的构造函数,例如:</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">functions</span> <span style="color:#a6e22e">Star</span>(<span style="color:#a6e22e">uname</span>,<span style="color:#a6e22e">age</span>){
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#a6e22e">name</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span><span style="color:#f92672">=</span><span style="color:#a6e22e">age</span>
+}
+<span style="color:#a6e22e">Star</span>.<span style="color:#a6e22e">prototype</span><span style="color:#f92672">=</span>{
+    <span style="color:#a6e22e">constructor</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Star</span>,
+    <span style="color:#a6e22e">sing</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){}
+}
+</code></pre></div><h2 id="对象高级方法">对象高级方法<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;2020-01-28 周二&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h3 id="object-dot-keys-方法">Object.keys 方法</h3>
+<h4 id="语法">语法:</h4>
+<ul>
+<li>Object.keys(obj)</li>
+<li>参数:要返回其枚举自身属性的对象</li>
+<li>返回值:一个表示给定对象的所有可枚举属性的字符串数组</li>
+</ul>
+<h4 id="注意">注意:</h4>
+<ol>
+<li>处理对象时,返回可枚举的属性数组</li>
+</ol>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">person</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;张三&#39;</span>,<span style="color:#a6e22e">age</span><span style="color:#f92672">:</span><span style="color:#ae81ff">25</span>,<span style="color:#a6e22e">address</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;深圳&#39;</span>,<span style="color:#a6e22e">getName</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){}}
+Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">person</span>)  <span style="color:#75715e">//[&#34;name&#34;,&#34;age&#34;,&#34;address&#34;,&#34;getName&#34;]
+</span></code></pre></div><ol>
+<li>处理数组时,返回索引值组成的数组(处理字符串时也是返回索引)</li>
+</ol>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>]
+Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">arr</span>) <span style="color:#75715e">//[&#34;0&#34;,&#34;1&#34;,&#34;2&#34;,&#34;3&#34;]
+</span></code></pre></div><h3 id="object-dot-defineproperty-方法">Object.defineProperty 方法</h3>
+<h4 id="语法">语法</h4>
+<ul>
+<li>Object.defineProperty(obj,prop,descriptor)</li>
+<li>参数说明
+<ul>
+<li>obj:必需,目标对象</li>
+<li>prop:必需,需定义或修改的属性的名字</li>
+<li>descriptor:必需,目标属性所拥有的特性</li>
+</ul>
+</li>
+</ul>
+<h4 id="descriptor">descriptor</h4>
+<ul>
+<li>数据描述:当修改或定义对象的某个属性的时候给这个属性添加一些特性
+<ol>
+<li>value:属性对应的值</li>
+<li>writable:属性的值是否可以被重写,设置为 true 可以被重写,默认为 false</li>
+<li>enumerable:此属性是否可以被枚举(用 for&hellip;in 或者 Object.keys()遍历),默认为 false</li>
+<li>configurable:是否可以删除目标属性或是否可以再次修改属性的特性,两个作用:
+<ul>
+<li>目标属性是否可以使用 delete 删除</li>
+<li>目标属性是否可以在此设置特性</li>
+<li><strong>注意</strong>:一旦使用 Object.defineProperty 给对象添加属性,那么如果不设置属性的特性,那么 configurable,enumerable,writable 这些都默认为 false</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>存取器描述:当使用存取器描述属性的特性的时候,允许设置以下特性</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {}
+Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e22e">obj</span>,<span style="color:#e6db74">&#39;newkey&#39;</span>,{
+    <span style="color:#a6e22e">get</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){} <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>,
+    <span style="color:#a6e22e">set</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){} <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>,
+    <span style="color:#a6e22e">configurable</span><span style="color:#f92672">:</span><span style="color:#66d9ef">true</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">false</span>,
+    <span style="color:#a6e22e">enumerable</span><span style="color:#f92672">:</span><span style="color:#66d9ef">true</span> <span style="color:#f92672">|</span><span style="color:#66d9ef">false</span>
+})
+</code></pre></div><ul>
+<li><strong>注意</strong>:当使用了 getter 或者 setter 方法后,就不允许使用 writable 和 value 这两个</li>
+</ul>
+<h4 id="get-set">get/set</h4>
+<p>当设置或获取对象的某个属性的值的时候,可以提供 getter/setter 方法</p>
+<ul>
+<li>getter 是一种获得属性的方法</li>
+<li>setter 是一种设置属性值的方法</li>
+<li>getter 和 setter 不是必须成对出现,任写其一即可</li>
+</ul>
+<h2 id="函数-this-进阶">函数 this 进阶<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;2020-01-30 周四&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h3 id="函数内-this-指向-this-指向">函数内 this 指向                                                :this 指向:</h3>
+<p>这些 this 的指向，是我们调用函数时候确定的，调用方式的不同决定了 this 指向不同，一般指向函数的调用者</p>
+<table>
+<thead>
+<tr>
+<th align="center">调用方式</th>
+<th align="center">this 指向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">普通函数调用</td>
+<td align="center">window</td>
+</tr>
+<tr>
+<td align="center">构造函数调用</td>
+<td align="center">实例对象 原型对象里面的方法也指向实例对象</td>
+</tr>
+<tr>
+<td align="center">对象方法调用</td>
+<td align="center">该方法所属对象</td>
+</tr>
+<tr>
+<td align="center">事件绑定方法</td>
+<td align="center">绑定事件对象</td>
+</tr>
+<tr>
+<td align="center">定时器函数</td>
+<td align="center">window</td>
+</tr>
+<tr>
+<td align="center">立即执行函数</td>
+<td align="center">window</td>
+</tr>
+</tbody>
+</table>
+<h3 id="改变函数内部-this-指向-this-指向">改变函数内部 this 指向                                          :this 指向:</h3>
+<ul>
+<li>call()
+<ul>
+<li>call 第一个功能可以调用函数，第二功能可以改变函数内 this 指向</li>
+<li>call 的主要作用可以实现继承</li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Father</span>(<span style="color:#a6e22e">uname</span>,<span style="color:#a6e22e">age</span>,<span style="color:#a6e22e">sex</span>){
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">uname</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">uname</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">age</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">sex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sex</span>
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Son</span>(<span style="color:#a6e22e">uname</span>,<span style="color:#a6e22e">age</span>,<span style="color:#a6e22e">sex</span>){
+    <span style="color:#a6e22e">Father</span>.<span style="color:#a6e22e">call</span>(<span style="color:#66d9ef">this</span>,<span style="color:#a6e22e">uname</span>,<span style="color:#a6e22e">age</span>,<span style="color:#a6e22e">sex</span>) <span style="color:#75715e">//调用父构造函数的同时，将父构造函数的 this 指向子构造函数
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">son</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Son</span>(<span style="color:#e6db74">&#39;刘德华&#39;</span>,<span style="color:#ae81ff">18</span>,<span style="color:#e6db74">&#39;男&#39;</span>)
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">son</span>)
+</code></pre></div><ul>
+<li>apply()
+<ul>
+<li>参数必须是数组</li>
+<li>apply 的主要应用，比如我们可以利用 apply 借助于数学内置对象求最大值</li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">434</span>,<span style="color:#ae81ff">54354</span>]
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">max</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">max</span>.<span style="color:#a6e22e">apply</span>(Math,<span style="color:#a6e22e">arr</span>) <span style="color:#75715e">//this 指向 max 的调用者
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">max</span>)
+</code></pre></div><ul>
+<li>
+<p>bind()</p>
+<ul>
+<li>不会调用原来的函数  可以改变函数内部的 this 指向</li>
+</ul>
+<p>-返回的是原函数改变 this 之后产生的新函数</p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">h</span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">o</span> <span style="color:#f92672">=</span>{
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;andy&#39;</span>
+}
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span>)(
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">b</span>)
+)
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">=</span><span style="color:#a6e22e">fn</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#a6e22e">o</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>)
+<span style="color:#a6e22e">f</span>()
+</code></pre></div><h2 id="何时在-es6-中使用箭头函数">何时在 es6 中使用箭头函数<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;2020-01-30 周四&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<ul>
+<li>在全局作用域和 Object.prototype 属性中使用 function</li>
+<li>为对象构造函数使用 class</li>
+<li>其他情况使用箭头函数</li>
+</ul>
+<p><strong>为啥大多数情况使用箭头函数?</strong></p>
+<ul>
+<li><strong>作用域安全性</strong>:当箭头函数被一致使用时,所有东西都保证使用与根对象相同的 thisObject.如果一个标准函数回调与一堆箭头函数混合在一起,那么作用域就又可能变得混乱</li>
+<li><strong>紧凑型</strong>:箭头函数容易读写</li>
+<li><strong>清晰度</strong>:使用箭头函数可以明确知道当前 this 指向</li>
+</ul>
+<p><strong>不应该使用箭头函数的情况</strong></p>
+<ul>
+<li>当想要函数被提升时候</li>
+<li>要在函数中使用 this/arguments 时,由于箭头函数本身不具有 this/arguments,因此它取决于外部上下文</li>
+<li>使用命名函数(箭头函数是匿名的)</li>
+<li>使用函数作为构造函数时(箭头函数没有构造函数)</li>
+<li>当想在对象字面量是以函数作为属性添加并在其中使用对象谁</li>
+<li>super super super</li>
+</ul>
+<h2 id="严格模式">严格模式 <!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;2020-02-15 周六&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h3 id="this-的指向问题">this 的指向问题</h3>
+<ul>
+<li>非严格模式下全局作用域函数中的 this 指向 window 对象</li>
+<li>严格模式下全局作用域中函数的 this 是 undefined</li>
+<li>非严格模式下构造函数不加 new 也可以调用，this 指向全局对象</li>
+<li>严格模式下，如果构造函数不加 new 调用，this 会报错</li>
+<li>new 实例化的构造函数指向创建的对象的实例</li>
+<li>定时器指向的还是 window 对象</li>
+<li>事件、对象还是指向调用者</li>
+</ul>
+<h3 id="函数变化">函数变化</h3>
+<ul>
+<li>函数不能有重名的参数</li>
+<li>函数必须声明在顶层，不允许在非函数代码块中声明函数</li>
+</ul>
+<h2 id="高阶函数">高阶函数<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;2020-02-15 周六&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h3 id="概念">概念</h3>
+<blockquote>
+<p>高阶函数是对其他函数进行操作的函数，它接收函数作为参数或将函数作为返回值输出</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 1.函数作为参数
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span>,<span style="color:#a6e22e">callback</span>){
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">b</span>)
+    <span style="color:#a6e22e">callback</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">callback</span>()
+}
+
+<span style="color:#a6e22e">fn</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#66d9ef">function</span>(){
+    <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;hello&#39;</span>)
+}))
+<span style="color:#75715e">// 2. 函数作为返回值
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fn</span>(){
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span>(){}
+}
+</code></pre></div>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

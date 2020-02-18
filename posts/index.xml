@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Cjae的个人博客</title>
+    <link>https://cj970116.github.io/posts/</link>
+    <description>Recent content in Posts on Cjae的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 18 Feb 2020 11:47:15 +0800</lastBuildDate>
+    
+	<atom:link href="https://cj970116.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First</title>
+      <link>https://cj970116.github.io/posts/first/</link>
+      <pubDate>Tue, 18 Feb 2020 11:47:15 +0800</pubDate>
+      
+      <guid>https://cj970116.github.io/posts/first/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>js 高级学习笔记</title>
+      <link>https://cj970116.github.io/posts/js%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 17 Feb 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://cj970116.github.io/posts/js%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/</guid>
+      <description>es6 继承&amp;lt;2020-01-27 周一&amp;gt;  语法   构造函数和原型&amp;lt;2020-01-27 周一&amp;gt; 对象高级方法&amp;lt;2020-01-28 周二&amp;gt;  Object.keys 方法:对象属性遍历:  语法: 注意:   Object.defineProperty 方法  语法 descriptor get/set     函数 this 进阶&amp;lt;2020-01-30 周四&amp;gt;  函数内 this 指向 :this 指向: 改变函数内部 this 指向 :this 指向:   何时在 es6 中使用箭头函数&amp;lt;2020-01-30 周四&amp;gt; 严格模式 &amp;lt;2020-02-15 周六&amp;gt;  this 的指向问题 函数变化   高阶函数&amp;lt;2020-02-15 周六&amp;gt;  概念    es6 继承&amp;lt;2020-01-27 周一&amp;gt; 语法 class Father{} //父类class Son{} //子类class Son extends Father{} super 关键字:super 关键字用于访问和调用对象父类上的函数,可以调用父类上的构造函数,也可以调用父类的普通函数</description>
+    </item>
+    
+  </channel>
+</rss>
