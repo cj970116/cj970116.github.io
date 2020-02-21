@@ -3,56 +3,70 @@
   
   <url>
     <loc>https://cj970116.github.io/categories/</loc>
-    <lastmod>2020-02-19T18:14:19+08:00</lastmod>
+    <lastmod>2020-02-22T00:13:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://cj970116.github.io/</loc>
-    <lastmod>2020-02-19T18:14:19+08:00</lastmod>
+    <lastmod>2020-02-22T00:13:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://cj970116.github.io/categories/js/</loc>
-    <lastmod>2020-02-19T18:14:19+08:00</lastmod>
+    <lastmod>2020-02-22T00:13:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cj970116.github.io/post/js%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2020-02-18T11:49:57+08:00</lastmod>
+    <loc>https://cj970116.github.io/post/js%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2020-02-22T00:04:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cj970116.github.io/tags/js%E6%95%B0%E7%BB%84/</loc>
-    <lastmod>2020-02-19T18:14:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://cj970116.github.io/post/js%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</loc>
-    <lastmod>2020-02-19T18:14:19+08:00</lastmod>
+    <loc>https://cj970116.github.io/tags/js%E8%BF%9B%E9%98%B6/</loc>
+    <lastmod>2020-02-22T00:04:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://cj970116.github.io/post/</loc>
-    <lastmod>2020-02-19T18:14:19+08:00</lastmod>
+    <lastmod>2020-02-22T00:13:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://cj970116.github.io/tags/</loc>
-    <lastmod>2020-02-19T18:14:19+08:00</lastmod>
+    <lastmod>2020-02-22T00:13:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cj970116.github.io/tags/js%E6%95%B0%E7%BB%84/</loc>
+    <lastmod>2020-02-22T00:13:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cj970116.github.io/post/%E4%BD%A0%E5%80%BC%E5%BE%97%E6%8E%8C%E6%8F%A1%E7%9A%84js%E6%95%B0%E7%BB%84%E6%8A%80%E5%B7%A7%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0ing/</loc>
+    <lastmod>2020-02-22T00:13:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cj970116.github.io/tags/%E9%9D%A2%E8%AF%95%E5%BF%85%E7%9C%8B/</loc>
+    <lastmod>2020-02-22T00:13:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>你值得掌握的js数组技巧（持续更新ing） - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="olOwOlo" /><meta name="description" content="数组去重 替换 遍历数组Array.from 清空数组 数组转换为对象 填充数组 合并数组 两个数组的交集 去除假值 获取数组中的随机值 倒序 lastIndexOf() 求和 State &amp;ldquo;DONE&amp;rdquo; from &amp;ldquo;STARTED&amp;rdquo; [2020-02-21 周" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.64.1 with theme even" />
+
+
+<link rel="canonical" href="https://cj970116.github.io/post/%E4%BD%A0%E5%80%BC%E5%BE%97%E6%8E%8C%E6%8F%A1%E7%9A%84js%E6%95%B0%E7%BB%84%E6%8A%80%E5%B7%A7%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0ing/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="你值得掌握的js数组技巧（持续更新ing）" />
+<meta property="og:description" content="数组去重 替换 遍历数组Array.from 清空数组 数组转换为对象 填充数组 合并数组 两个数组的交集 去除假值 获取数组中的随机值 倒序 lastIndexOf() 求和 State &ldquo;DONE&rdquo; from &ldquo;STARTED&rdquo; [2020-02-21 周" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cj970116.github.io/post/%E4%BD%A0%E5%80%BC%E5%BE%97%E6%8E%8C%E6%8F%A1%E7%9A%84js%E6%95%B0%E7%BB%84%E6%8A%80%E5%B7%A7%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0ing/" />
+<meta property="article:published_time" content="2020-02-17T00:00:00+08:00" />
+<meta property="article:modified_time" content="2020-02-22T00:13:05+08:00" />
+<meta itemprop="name" content="你值得掌握的js数组技巧（持续更新ing）">
+<meta itemprop="description" content="数组去重 替换 遍历数组Array.from 清空数组 数组转换为对象 填充数组 合并数组 两个数组的交集 去除假值 获取数组中的随机值 倒序 lastIndexOf() 求和 State &ldquo;DONE&rdquo; from &ldquo;STARTED&rdquo; [2020-02-21 周">
+<meta itemprop="datePublished" content="2020-02-17T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2020-02-22T00:13:05&#43;08:00" />
+<meta itemprop="wordCount" content="1585">
+
+
+
+<meta itemprop="keywords" content="js数组,面试必看," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="你值得掌握的js数组技巧（持续更新ing）"/>
+<meta name="twitter:description" content="数组去重 替换 遍历数组Array.from 清空数组 数组转换为对象 填充数组 合并数组 两个数组的交集 去除假值 获取数组中的随机值 倒序 lastIndexOf() 求和 State &ldquo;DONE&rdquo; from &ldquo;STARTED&rdquo; [2020-02-21 周"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Cjae的个人博客</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Cjae的个人博客</a>
+</div>
+<img src="https://i.loli.net/2020/02/18/A6N9ViOvenwSoYt.png" alt="Even - A super concise theme for Hugo"  width="150px" 
+style="border-radius: 50%; margin-top: 8vw;"/>
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">你值得掌握的js数组技巧（持续更新ing）</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-02-17 </span>
+        <div class="post-category">
+            <a href="/categories/js/"> js </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#数组去重">数组去重</a></li>
+    <li><a href="#替换">替换</a></li>
+    <li><a href="#遍历数组array-dot-from">遍历数组Array.from</a></li>
+    <li><a href="#清空数组">清空数组</a></li>
+    <li><a href="#数组转换为对象">数组转换为对象</a></li>
+    <li><a href="#填充数组">填充数组</a></li>
+    <li><a href="#合并数组">合并数组</a></li>
+    <li><a href="#两个数组的交集">两个数组的交集</a></li>
+    <li><a href="#去除假值">去除假值</a></li>
+    <li><a href="#获取数组中的随机值">获取数组中的随机值</a></li>
+    <li><a href="#倒序">倒序</a></li>
+    <li><a href="#lastindexof">lastIndexOf()</a></li>
+    <li><a href="#求和">求和</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ul>
+<li><a href="#%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D">数组去重</a></li>
+<li><a href="#%E6%9B%BF%E6%8D%A2">替换</a></li>
+<li><a href="#%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84array-dot-from">遍历数组Array.from</a></li>
+<li><a href="#%E6%B8%85%E7%A9%BA%E6%95%B0%E7%BB%84">清空数组</a></li>
+<li><a href="#%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%AF%B9%E8%B1%A1">数组转换为对象</a></li>
+<li><a href="#%E5%A1%AB%E5%85%85%E6%95%B0%E7%BB%84">填充数组</a></li>
+<li><a href="#%E5%90%88%E5%B9%B6%E6%95%B0%E7%BB%84">合并数组</a></li>
+<li><a href="#%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86">两个数组的交集</a></li>
+<li><a href="#%E5%8E%BB%E9%99%A4%E5%81%87%E5%80%BC">去除假值</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E5%80%BC">获取数组中的随机值</a></li>
+<li><a href="#%E5%80%92%E5%BA%8F">倒序</a></li>
+<li><a href="#lastindexof">lastIndexOf()</a></li>
+<li><a href="#%E6%B1%82%E5%92%8C">求和</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<ul>
+<li>State &ldquo;DONE&rdquo;       from &ldquo;STARTED&rdquo;    <!-- raw HTML omitted --><!-- raw HTML omitted -->[2020-02-21 周五 23:38]<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+<p>CLOSED: <!-- raw HTML omitted --><!-- raw HTML omitted -->[2020-02-21 周五 23:38]<!-- raw HTML omitted --><!-- raw HTML omitted -->
+转自：<a href="https://juejin.im/post/5e4c03da6fb9a07cac1d55bc">https://juejin.im/post/5e4c03da6fb9a07cac1d55bc</a></p>
+<h2 id="数组去重">数组去重</h2>
+<p>这也是一道常见关于数组去重的面试题，在es6中有个简单粗暴的办法，使用new Set()以及Array.from()或者展开运算符（&hellip;）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">friuts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="s1">&#39;watermelon&#39;</span><span class="p">,</span><span class="s1">&#39;apple&#39;</span><span class="p">]</span>
+
+<span class="c1">//方法一
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">unqiueFriuts</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="k">new</span> <span class="nx">Set</span><span class="p">(</span><span class="nx">friuts</span><span class="p">)</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">unqiueFriuts</span><span class="p">)</span> <span class="c1">//[&#39;banana&#39;,&#39;apple&#39;,&#39;orange&#39;,watermelon]
+</span><span class="c1"></span>
+<span class="c1">//方法二
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">unqiueFriuts2</span> <span class="o">=</span> <span class="p">[</span><span class="p">...</span><span class="k">new</span> <span class="nx">Set</span><span class="p">(</span><span class="nx">friuts</span><span class="p">)</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">unqiueFriuts2</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="替换">替换</h2>
+<p>日常开发中经常需要替换或者删除一些指定的数据，遇到这种情况一定要想到
+Array.protoType.splice这个方法，该方法接收3个参数，第一个参数是开始的索引，第二个参数是需要删除的数量，剩下的就是要添加的值（可以是一个或者多个）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">friuts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="s1">&#39;watermelon&#39;</span><span class="p">,</span><span class="s1">&#39;apple&#39;</span><span class="p">]</span>
+<span class="nx">friuts</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;potato&#39;</span><span class="p">,</span><span class="s1">&#39;tomato&#39;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">friuts</span><span class="p">)</span> <span class="c1">//[&#39;potato&#39;,&#39;tomato&#39;,&#39;orange&#39;,&#39;watermelon&#39;,&#39;apple&#39;]
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="遍历数组array-dot-from">遍历数组Array.from</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">friends</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;John&#39;</span><span class="p">,</span><span class="nx">age</span><span class="o">:</span><span class="mi">22</span><span class="p">}</span>
+    <span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;Perter&#39;</span><span class="p">,</span><span class="nx">age</span><span class="o">:</span><span class="mi">23</span><span class="p">}</span>
+    <span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;Mark&#39;</span><span class="p">,</span><span class="nx">age</span><span class="o">:</span><span class="mi">24</span><span class="p">}</span>
+    <span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;Maria&#39;</span><span class="p">,</span><span class="nx">age</span><span class="o">:</span><span class="mi">25</span><span class="p">}</span>
+    <span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;Monica&#39;</span><span class="p">,</span><span class="nx">age</span><span class="o">:</span><span class="mi">26</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="kd">let</span> <span class="nx">friendsNames</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">friends</span><span class="p">,</span><span class="p">(</span><span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="p">)</span><span class="p">=&gt;</span><span class="nx">name</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">friendsNames</span><span class="p">)</span>  <span class="c1">//[&#39;John&#39;,&#39;Perter&#39;,&#39;Mark&#39;,&#39;Maria&#39;,&#39;monica&#39;]
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="清空数组">清空数组</h2>
+<p>有时候我们需要清空一个数组，比如用户点击了清空购物车，可以一条一条的删除，但是这样用户体验差，其实一行代码就能搞定，那就是将数组的length设置为0</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="err">“</span><span class="nx">banana</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">apple</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">orange</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">watermelon</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">apple</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">orange</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">grape</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">apple</span><span class="err">”</span><span class="p">]</span><span class="p">;</span>
+
+<span class="nx">fruits</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">)</span><span class="p">;</span> <span class="c1">// returns []
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="数组转换为对象">数组转换为对象</h2>
+<p>有的时候需要将数组转换为对象的格式，使用.map一类的数组迭代方法能达到目的，但是还有更快的方法，前提是你希望对象的key正好就是数组的索引</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="err">“</span><span class="nx">banana</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">apple</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">orange</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">watermelon</span><span class="err">”</span><span class="p">]</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">fruitsObj</span> <span class="o">=</span> <span class="p">{</span> <span class="err">…</span><span class="nx">fruits</span> <span class="p">}</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruitsObj</span><span class="p">)</span><span class="p">;</span> <span class="c1">// returns {0: “banana”, 1: “apple”, 2: “orange”, 3: “watermelon”, 4: “apple”, 5: “orange”, 6: “grape”, 7: “apple”}
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="填充数组">填充数组</h2>
+<p>创建数组的时候，你有没有遇到过需要填充上默认值的场景，你肯定首先想到的就是循环这个数组。ES6提供了更便捷的.fill方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">newArray</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newArray</span><span class="p">)</span> <span class="c1">//[&#39;1&#39;,&#39;1&#39;,&#39;1&#39;,&#39;1&#39;]
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="合并数组">合并数组</h2>
+<p>说到合并数组，首先想到的就是.concat(),但是今天我们要介绍的是es6展开运算符（&hellip;）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">friuts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span><span class="s1">&#39;orange&#39;</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nx">meat</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;poulyry&#39;</span><span class="p">,</span><span class="s1">&#39;beff&#39;</span><span class="p">,</span><span class="s1">&#39;fish&#39;</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nx">food</span> <span class="o">=</span> <span class="p">[</span><span class="p">...</span><span class="nx">friuts</span><span class="p">,</span><span class="p">...</span><span class="nx">meat</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">food</span><span class="p">)</span>   <span class="c1">// [&#39;apple&#39;,&#39;banana&#39;,&#39;orange&#39;,&#39;poulyry&#39;,&#39;beff&#39;,&#39;fish&#39;]
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="两个数组的交集">两个数组的交集</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">numOne</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nx">numTwo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nx">commonValues</span> <span class="o">=</span> <span class="p">[</span><span class="p">...</span><span class="k">new</span> <span class="nx">Set</span><span class="p">(</span><span class="nx">numOne</span><span class="p">)</span><span class="p">]</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">numTwo</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">commonValues</span><span class="p">)</span> <span class="c1">//[2,4,6]
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="去除假值">去除假值</h2>
+<blockquote>
+<p>首先，我们要知道假值是什么？在js中，假值有：false，0，''，null，undefined,NAN。现在我们需要找到这些值并将它们移除，可以使用.fliter方法</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">mixedArr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="nx">NAN</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="kc">undefined</span><span class="p">,</span><span class="kc">false</span><span class="p">,</span><span class="kc">true</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nx">trueArr</span> <span class="o">=</span> <span class="nx">mixedArr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nb">Boolean</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">trueArr</span><span class="p">)</span>  <span class="c1">//[&#39;blue&#39;,9,true]
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="获取数组中的随机值">获取数组中的随机值</h2>
+<p>考察的知识点是随机生成一个值x：X&gt;=0 &amp;&amp; X&lt;数组的length</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bule&#39;</span><span class="p">,</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="s1">&#39;green&#39;</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nx">randomColor</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">[</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">(</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="p">)</span><span class="p">)</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>这里的Math.random是生成一个[0,1)之间的数，Math.floor表示向下取整</p>
+</blockquote>
+<h2 id="倒序">倒序</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="err">“</span><span class="nx">blue</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">white</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">green</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">navy</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">pink</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">purple</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">orange</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">yellow</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">black</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">brown</span><span class="err">”</span><span class="p">]</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">reversedColors</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">reverse</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="c1">// 或者 colors.slice().reverse();
+</span><span class="c1"></span><span class="c1">// 两者有啥区别？
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reversedColors</span><span class="p">)</span><span class="p">;</span> <span class="c1">// returns [“brown”, “black”, “yellow”, “orange”, “purple”, “pink”, “navy”, “green”, “white”, “blue”]
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="lastindexof">lastIndexOf()</h2>
+<p>很多时候我们查找元素是否存在于某个数组中，经常使用indexOf方法，常常忽略lastIndexOf方法，后者会被使用的一个场景就是，某个数组中有重复的数据</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">lastIndex</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">lastIndexOf</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lastIndex</span><span class="p">)</span><span class="p">;</span> <span class="c1">// returns 9
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="求和">求和</h2>
+<p>对数组中的所有元素进行求和，哈哈，又是一道如数家珍的面试题。答案也是很多，条条大道通罗马，这里使用的是reduce，reduce方法是很值得学习的知识点，用处很多。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">)</span><span class="p">;</span> <span class="c1">// returns 14
+</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">olOwOlo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-02-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/js%E6%95%B0%E7%BB%84/">js数组</a>
+          <a href="/tags/%E9%9D%A2%E8%AF%95%E5%BF%85%E7%9C%8B/">面试必看</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/js%E7%AC%94%E8%AE%B0/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">js笔记</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://cj970116.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">olOwOlo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

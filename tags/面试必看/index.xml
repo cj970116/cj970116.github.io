@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Even - A super concise theme for Hugo</title>
-    <link>https://cj970116.github.io/post/</link>
-    <description>Recent content in Posts on Even - A super concise theme for Hugo</description>
+    <title>面试必看 on Even - A super concise theme for Hugo</title>
+    <link>https://cj970116.github.io/tags/%E9%9D%A2%E8%AF%95%E5%BF%85%E7%9C%8B/</link>
+    <description>Recent content in 面试必看 on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 21 Feb 2020 23:48:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Feb 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://cj970116.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cj970116.github.io/tags/%E9%9D%A2%E8%AF%95%E5%BF%85%E7%9C%8B/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>js笔记</title>
-      <link>https://cj970116.github.io/post/js%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Fri, 21 Feb 2020 23:48:00 +0800</pubDate>
-      
-      <guid>https://cj970116.github.io/post/js%E7%AC%94%E8%AE%B0/</guid>
-      <description>es6 继承 语法 构造函数和原型 对象高级方法 Object.keys 方法 语法: 注意: Object.defineProperty 方法 语法 descriptor get/set 函数 this 进阶 函数内 this 指向 :this 指向: 改变函数内部 this 指向 :this 指向: 何时在 es6 中使用箭</description>
-    </item>
     
     <item>
       <title>你值得掌握的js数组技巧（持续更新ing）</title>
