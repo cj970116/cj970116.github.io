@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="olOwOlo" /><meta name="description" content="es6 继承 语法 构造函数和原型 对象高级方法 Object.keys 方法 语法: 注意: Object.defineProperty 方法 语法 descriptor get/set 函数 this 进阶 函数内 this 指向 :this 指向: 改变函数内部 this 指向 :this 指向: 何时在 es6 中使用箭" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Cjae" /><meta name="description" content="es6 继承 语法 构造函数和原型 对象高级方法 Object.keys 方法 语法: 注意: Object.defineProperty 方法 语法 descriptor get/set 函数 this 进阶 函数内 this 指向 :this 指向: 改变函数内部 this 指向 :this 指向: 何时在 es6 中使用箭" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -36,6 +36,7 @@
 
 <link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/custom.css">
 
 
 <meta property="og:title" content="js笔记" />
@@ -82,7 +83,7 @@
     <a href="/">
         <li class="mobile-menu-item">首页</li>
       </a><a href="/post/">
-        <li class="mobile-menu-item">文章</li>
+        <li class="mobile-menu-item">归档</li>
       </a><a href="/tags/">
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
@@ -95,21 +96,18 @@
         <div class="logo-wrapper">
   <a href="/" class="logo">Cjae的个人博客</a>
 </div>
-<img src="https://i.loli.net/2020/02/18/A6N9ViOvenwSoYt.png" alt="Even - A super concise theme for Hugo"  width="150px" 
-style="border-radius: 50%; margin-top: 8vw;"/>
-
-
+<img src="https://raw.githubusercontent.com/cj970116/img/master/img/avatar.jpg" alt=""  width="5%" style="border-radius:50%">
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
+        <a class="menu-item-link" href="/"><i class="iconfont icon-home"></i>首页</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">文章</a>
+        <a class="menu-item-link" href="/post/"><i class="iconfont icon-archives"></i>归档</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
+        <a class="menu-item-link" href="/tags/"><i class="iconfont icon-tags"></i>标签</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
+        <a class="menu-item-link" href="/categories/"><i class="iconfont icon-categories"></i>分类</a>
       </li>
   </ul>
 </nav>
@@ -689,7 +687,7 @@ constructor 主要用于记录该对象引用于哪个构造函数,它可以让�
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">Author</span>
-    <span class="item-content">olOwOlo</span>
+    <span class="item-content">Cjae</span>
   </p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
@@ -756,7 +754,7 @@ constructor 主要用于记录该对象引用于哪个构造函数,它可以让�
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">olOwOlo</span>
+    <span class="author">Cjae</span>
   </span>
 </div>
     </footer>
