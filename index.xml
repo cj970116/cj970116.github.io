@@ -6,10 +6,19 @@
     <description>Recent content on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 21 Feb 2020 23:48:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 23 Feb 2020 15:55:00 +0800</lastBuildDate>
     
 	<atom:link href="https://cj970116.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>深入理解js中的逻辑运算</title>
+      <link>https://cj970116.github.io/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3js%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97/</link>
+      <pubDate>Sun, 23 Feb 2020 15:55:00 +0800</pubDate>
+      
+      <guid>https://cj970116.github.io/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3js%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97/</guid>
+      <description>State &amp;ldquo;DONE&amp;rdquo; from &amp;ldquo;STARTED&amp;rdquo; [2020-02-23 周日 15:55] 本文参考链接：https://blog.csdn.net/liaozhongping/article/details/512</description>
+    </item>
     
     <item>
       <title>js笔记</title>

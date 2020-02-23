@@ -2,14 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://cj970116.github.io/categories/</loc>
-    <lastmod>2020-02-22T00:20:07+08:00</lastmod>
+    <loc>https://cj970116.github.io/</loc>
+    <lastmod>2020-02-23T16:02:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cj970116.github.io/</loc>
+    <loc>https://cj970116.github.io/post/</loc>
+    <lastmod>2020-02-23T16:02:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cj970116.github.io/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3js%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97/</loc>
+    <lastmod>2020-02-23T16:02:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cj970116.github.io/categories/</loc>
     <lastmod>2020-02-22T00:20:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -32,13 +46,6 @@
   <url>
     <loc>https://cj970116.github.io/tags/js%E8%BF%9B%E9%98%B6/</loc>
     <lastmod>2020-02-22T00:04:55+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://cj970116.github.io/post/</loc>
-    <lastmod>2020-02-22T00:20:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
